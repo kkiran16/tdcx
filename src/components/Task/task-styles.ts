@@ -11,7 +11,8 @@ export const EmptyTaskWrapper = styled.div`
   width: 80vh;
   max-width: 300px;
   padding: 24px;
-  margin: 0 1em;
+  /* margin: 0 1em; */
+  margin: 0 auto;
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0px 3px 6px #00000029;
