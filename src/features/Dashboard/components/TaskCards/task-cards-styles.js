@@ -37,3 +37,21 @@ export const StyledCompletedWrapper = styled.div`
   flex-direction: column;
   gap: 0.75rem;
 `
+export const StyledLatestWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+`
+export const StyledListWrapper = styled.div`
+  color: #8f9ea2;
+  font-size: 0.85rem;
+
+  li {
+    padding-bottom: 10px;
+  }
+`
+export const StyledChartWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+`
