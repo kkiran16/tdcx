@@ -8,7 +8,7 @@ export const EmptyTaskWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1.25rem;
-  width: 80vh;
+  width: 80vw;
   max-width: 300px;
   padding: 24px;
   /* margin: 0 1em; */
@@ -47,10 +47,11 @@ export const NewTaskWrapper = styled.div`
   display: flex;
   flex-direction: column;
   /* gap: 1.25rem; */
-  width: 80vh;
+  width: 80vw;
   max-width: 300px;
   padding: 24px;
-  margin: 0 1em;
+  margin: 0 auto;
+  /* margin: 0 1em; */
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0px 3px 6px #00000029;
