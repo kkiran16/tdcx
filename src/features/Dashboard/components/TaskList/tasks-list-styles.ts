@@ -7,6 +7,11 @@ export const TasksListContainer = styled.div`
   padding: 30px 0 16px;
   width: 320px;
   max-width: 320px;
+
+  @media (min-width: 426px) {
+    width: 100%;
+    max-width: 1440px;
+  }
 `
 
 export const TasksLevel1 = styled.div`
@@ -14,6 +19,11 @@ export const TasksLevel1 = styled.div`
   flex-direction: column;
   gap: 8px;
   padding: 0 15px;
+
+  @media (min-width: 426px) {
+    flex-direction: row;
+    padding: 0px;
+  }
 `
 
 export const TasksHeader = styled.div`
@@ -28,10 +38,18 @@ export const TaskSearch = styled.input`
   background: #d9dfeb;
   padding: 15px;
   font-size: 0.85rem;
+
+  @media (min-width: 426px) {
+    margin-left: auto;
+  }
 `
 export const TasksLevel2 = styled.div`
   margin-top: 16px;
   background-color: #fff;
+
+  @media (min-width: 426px) {
+    border-radius: 12px;
+  }
 `
 
 export const ListItemContainer = styled.div`

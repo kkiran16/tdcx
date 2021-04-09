@@ -15,8 +15,8 @@ function Dashboard(): React.ReactElement {
         <TasksCompleted />
         <TasksLatestList />
         <TasksChart />
-        <TasksList />
       </StyledCardsWrapper>
+      <TasksList />
     </StyledDashboardContainer>
   )
 }
