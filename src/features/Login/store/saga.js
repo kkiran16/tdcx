@@ -13,7 +13,6 @@ function* login({ id, name }) {
     }
     // Dummy Service Call
     const response = yield call(loginService, payload)
-    console.log(response)
     if (response.ok) {
       yield put(LoginActions.loginSuccess())
     }

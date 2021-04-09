@@ -5,7 +5,7 @@ type UserType = {
 
 type TaskStatusType = 'Pending' | 'Completed'
 
-type TaskType = {
+export type TaskType = {
   id: number
   taskName: string
   taskStaus: TaskStatusType

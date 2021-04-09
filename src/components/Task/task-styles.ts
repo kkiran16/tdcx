@@ -24,16 +24,16 @@ export const StyledEmptyDesc = styled.div`
 `
 
 export const StyledNewButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 11px 22px;
   color: #ffffff;
   background: #5285ec 0% 0% no-repeat padding-box;
   border-radius: 8px;
   border: 0;
   font-size: 14px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
 
   &:focus {
     outline: 0 none;

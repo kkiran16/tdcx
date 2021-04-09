@@ -1,4 +1,5 @@
 export type LinkStateToProps = {
+  loading: boolean
   loginSuccess: boolean
 }
 
