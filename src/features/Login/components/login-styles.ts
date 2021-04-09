@@ -19,7 +19,6 @@ export const StyledLoginHeader = styled.div`
 `
 
 export const StyledInput = styled.input`
-  /* width: 240px; */
   margin-bottom: 0.75rem;
   height: 40px;
   font-size: 1rem;
@@ -36,4 +35,9 @@ export const StyledButton = styled.button`
   height: 40px;
   color: #fff;
   font-size: 1rem;
+  cursor: pointer;
+
+  &:focus {
+    outline-style: none;
+  }
 `
