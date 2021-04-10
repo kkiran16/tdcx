@@ -7,11 +7,14 @@ import {
   StyledNewButton
 } from './task-styles'
 
-export function EmptyTask(): React.ReactElement {
+type TProps = {
+  handleNewTask: () => void
+}
+export function EmptyTask({ handleNewTask }: TProps): React.ReactElement {
   return (
     <EmptyTaskWrapper>
       <StyledEmptyDesc>You have no task.</StyledEmptyDesc>
-      <StyledNewButton>
+      <StyledNewButton onClick={handleNewTask}>
         <StyledAddIcon />
         New Task
       </StyledNewButton>

@@ -1,6 +1,7 @@
 import { NewTask } from 'components/Task'
 import { StyledAddIcon, StyledNewButton } from 'components/Task/task-styles'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { TaskType } from 'Utils/app-data'
 import ListItem from './list-item'
 import {
   TasksListContainer,
@@ -11,7 +12,19 @@ import {
   StyledDivider
 } from './tasks-list-styles'
 
-function TasksList() {
+type TProps = {
+  tasks: Array<TaskType>
+}
+function TasksList({ tasks }: TProps): React.ReactElement {
+  /* const refCount = useRef<number>(0)
+
+  useEffect(() => {
+    return () => {
+      console.log('Came', refCount.current)
+      refCount.current = 0
+    }
+  })
+ */
   return (
     <TasksListContainer>
       <TasksLevel1>
@@ -23,9 +36,14 @@ function TasksList() {
         </StyledNewButton>
       </TasksLevel1>
       <TasksLevel2>
-        <ListItem />
-        <StyledDivider />
-        <ListItem />
+        {tasks.map((task: TaskType) => {
+          return (
+            <>
+              <ListItem key={task.id} task={task} />
+              <StyledDivider />
+            </>
+          )
+        })}
       </TasksLevel2>
     </TasksListContainer>
   )

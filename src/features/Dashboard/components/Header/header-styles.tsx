@@ -41,4 +41,6 @@ export const StyledIcon = styled.div`
   padding: 5px;
 `
 
-export const StyledLogout = styled.div``
+export const StyledLogout = styled.div`
+  cursor: pointer;
+`

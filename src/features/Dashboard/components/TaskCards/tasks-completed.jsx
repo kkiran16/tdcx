@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import {
   StyledCardContainer,
@@ -6,12 +7,18 @@ import {
   StyledTaskCompletedHeader
 } from './task-cards-styles'
 
-function TasksCompleted() {
+/* type TProps = {
+  completedCount: number
+} */
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+function TasksCompleted({ completedCount, totalCount }) {
   return (
     <StyledCardContainer>
       <StyledCompletedWrapper>
         <StyledTaskCompletedHeader>Tasks Completed</StyledTaskCompletedHeader>
-        <StyledCompleted totalTasks="/ 20">5</StyledCompleted>
+        <StyledCompleted totalTasks={`/ ${totalCount}`}>
+          {completedCount}
+        </StyledCompleted>
       </StyledCompletedWrapper>
     </StyledCardContainer>
   )

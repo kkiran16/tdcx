@@ -1,4 +1,5 @@
 import React from 'react'
+import { TaskType } from 'Utils/app-data'
 import {
   StyledCardContainer,
   StyledTaskCompletedHeader,
@@ -6,7 +7,11 @@ import {
   StyledLatestWrapper
 } from './task-cards-styles'
 
-function TasksLatestList(): React.ReactElement {
+type TProps = {
+  latestTasks: Array<TaskType>
+}
+
+function TasksLatestList({ latestTasks }: TProps): React.ReactElement {
   return (
     <StyledCardContainer>
       <StyledLatestWrapper>
@@ -14,9 +19,9 @@ function TasksLatestList(): React.ReactElement {
           Latest Created Tasks
         </StyledTaskCompletedHeader>
         <StyledListWrapper>
-          <li>Clean the room</li>
-          <li>Buy Vegetables</li>
-          <li>Reinstall</li>
+          {latestTasks.map((task) => (
+            <li key={task.id}>{task.taskName}</li>
+          ))}
         </StyledListWrapper>
       </StyledLatestWrapper>
     </StyledCardContainer>

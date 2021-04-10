@@ -2,7 +2,15 @@ import React from 'react'
 import { Chart } from 'react-google-charts'
 import { StyledCardContainer, StyledChartWrapper } from './task-cards-styles'
 
-function TasksChart() {
+type TProps = {
+  completedCount: number
+  totalCount: number
+}
+
+function TasksChart({
+  completedCount,
+  totalCount
+}: TProps): React.ReactElement {
   return (
     <StyledCardContainer>
       <StyledChartWrapper>
@@ -13,8 +21,8 @@ function TasksChart() {
           loader={<div>Loading Chart</div>}
           data={[
             ['Task', 'Per Day'],
-            ['Completed', 5],
-            ['Total', 20]
+            ['Completed', completedCount],
+            ['Remaining', totalCount - completedCount]
           ]}
           rootProps={{ 'data-testid': '1' }}
         />

@@ -3,7 +3,9 @@ import { createActions } from 'reduxsauce'
 const { Types, Creators } = createActions(
   {
     fetchTasksList: null,
-    updateTasksList: ['tasks']
+    updateTasksList: ['tasks'],
+    addTask: ['name'],
+    changeStatus: ['id', 'status']
   },
   {
     prefix: '@DASHBOARD-'

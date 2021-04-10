@@ -7,16 +7,30 @@ import TasksCompleted from './TaskCards/tasks-completed'
 import TasksLatestList from './TaskCards/tasks-latest-list'
 import TasksChart from './TaskCards/tasks-chart'
 import TasksList from './TaskList/tasks-list'
+import {
+  LinkDashboardDispatchToProps,
+  LinkDashboardStateToProps
+} from '../types'
 
-function Dashboard(): React.ReactElement {
+type TProps = LinkDashboardStateToProps & LinkDashboardDispatchToProps
+
+function Dashboard({ tasksList, completedCOunt }: TProps): React.ReactElement {
   return (
     <StyledDashboardContainer>
       <StyledCardsWrapper>
-        <TasksCompleted />
-        <TasksLatestList />
-        <TasksChart />
+        <TasksCompleted
+          completedCount={completedCOunt}
+          totalCount={tasksList.length}
+        />
+
+        <TasksLatestList latestTasks={[...tasksList.slice(-3)].reverse()} />
+
+        <TasksChart
+          completedCount={completedCOunt}
+          totalCount={tasksList.length}
+        />
       </StyledCardsWrapper>
-      <TasksList />
+      <TasksList tasks={[...tasksList].reverse()} />
     </StyledDashboardContainer>
   )
 }

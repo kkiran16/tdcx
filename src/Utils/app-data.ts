@@ -3,12 +3,12 @@ type UserType = {
   name: string
 }
 
-type TaskStatusType = 'Pending' | 'Completed'
+export type TaskStatusType = 'Pending' | 'Completed'
 
 export type TaskType = {
-  id: number
+  id: string
   taskName: string
-  taskStaus: TaskStatusType
+  taskStatus: TaskStatusType
 }
 
 type ThisType = {
@@ -35,19 +35,19 @@ AppData.prototype.getTasksList = function (): Array<TaskType> {
   return this.tasks
 }
 
-AppData.prototype.insertTask = function (task: TaskType) {
+AppData.prototype.addTask = function (task: TaskType) {
   this.tasks.push(task)
 }
 
 AppData.prototype.updateTask = function (
-  taskId: number,
+  taskId: string,
   status: TaskStatusType
 ) {
   const index = this.tasks.findIndex((task: TaskType) => task.id === taskId)
-  this.tasks[index].taskStaus = status
+  this.tasks[index].taskStatus = status
 }
 
-AppData.prototype.deleteTask = function (taskId: number) {
+AppData.prototype.deleteTask = function (taskId: string) {
   const index = this.tasks.findIndex((task: TaskType) => task.id === taskId)
   this.tasks.splice(index, 1)
 }

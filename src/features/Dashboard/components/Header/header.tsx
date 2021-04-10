@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import {
   StyledHeaderContainer,
   StyledHeaderWrapper,
@@ -7,11 +8,17 @@ import {
 } from './header-styles'
 
 function Header(): React.ReactElement {
+  const history = useHistory()
+
+  const handleLogout = () => {
+    history.push('/')
+  }
+
   return (
     <StyledHeaderContainer>
       <StyledHeaderWrapper>
         <StyledIcon>KK</StyledIcon>
-        <StyledLogout>Logout</StyledLogout>
+        <StyledLogout onClick={handleLogout}>Logout</StyledLogout>
       </StyledHeaderWrapper>
     </StyledHeaderContainer>
   )
