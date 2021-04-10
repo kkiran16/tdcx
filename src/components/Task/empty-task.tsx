@@ -1,5 +1,5 @@
-import React from 'react'
-import Add from '@material-ui/icons/Add'
+import React, { useState } from 'react'
+import Modal from '@material-ui/core/Modal'
 import {
   EmptyTaskWrapper,
   StyledAddIcon,

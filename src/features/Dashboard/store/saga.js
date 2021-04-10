@@ -52,10 +52,26 @@ function* changeStatus({ id, status }) {
   }
 }
 
+function* deleteTask({ id }) {
+  try {
+    const payload = {
+      id
+    }
+    const serviceObj = new DashboardService()
+    const response = yield call(serviceObj.deleteTask, payload)
+    if (response.ok) {
+      yield put(DashboardActions.updateTasksList(response.data))
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export function* dashboardSagas() {
   yield all([
     takeLatest(DashboardTypes.FETCH_TASKS_LIST, fetchTasksList),
     takeLatest(DashboardTypes.ADD_TASK, addTask),
-    takeLatest(DashboardTypes.CHANGE_STATUS, changeStatus)
+    takeLatest(DashboardTypes.CHANGE_STATUS, changeStatus),
+    takeLatest(DashboardTypes.DELETE_TASK, deleteTask)
   ])
 }

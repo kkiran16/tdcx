@@ -2,13 +2,13 @@ import { appData } from 'App'
 import { TaskStatusType, TaskType } from 'Utils/app-data'
 
 // Need to revist for typings
-
+// Mocking Network Call and resolving after sometime
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 function DashboardService() {}
 
 DashboardService.prototype.getTasksList = function () {
-  return wait(3000).then(() => ({
+  return wait(2000).then(() => ({
     status: 200,
     ok: true,
     data: appData.getTasksList()
@@ -41,4 +41,13 @@ DashboardService.prototype.updateTask = function ({
   }))
 }
 
+DashboardService.prototype.deleteTask = function ({ id }: { id: string }) {
+  appData.deleteTask(id)
+
+  return wait(1500).then(() => ({
+    status: 200,
+    ok: true,
+    data: appData.getTasksList()
+  }))
+}
 export default DashboardService

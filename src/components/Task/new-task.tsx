@@ -10,7 +10,10 @@ import {
   StyledNewButton
 } from './task-styles'
 
-export function NewTask(): React.ReactElement {
+type TProps = {
+  handleModalClose: () => void
+}
+export function NewTask({ handleModalClose }: TProps): React.ReactElement {
   const [name, setName] = useState<string>('')
   const dispatch = useDispatch()
 
@@ -21,6 +24,7 @@ export function NewTask(): React.ReactElement {
   const handleAddTask = () => {
     dispatch(DashboardActions.addTask(name))
     setName('')
+    handleModalClose()
   }
 
   return (

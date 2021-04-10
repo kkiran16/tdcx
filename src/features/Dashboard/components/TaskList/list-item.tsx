@@ -23,6 +23,11 @@ function ListItem({ task }: TProps): React.ReactElement {
     dispatch(DashboardActions.changeStatus(task.id, sendStatus))
     setStatus(!status)
   }
+
+  const handleDelete = () => {
+    dispatch(DashboardActions.deleteTask(task.id))
+  }
+
   return (
     <ListItemContainer>
       <StyledCheckbox
@@ -34,7 +39,7 @@ function ListItem({ task }: TProps): React.ReactElement {
         {task.taskName}
       </StyledItemName>
       <StyledEdit />
-      <StyledDelete />
+      <StyledDelete onClick={handleDelete} />
     </ListItemContainer>
   )
 }

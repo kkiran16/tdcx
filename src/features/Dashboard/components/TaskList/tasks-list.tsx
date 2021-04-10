@@ -1,7 +1,8 @@
-import { NewTask } from 'components/Task'
+import React, { Fragment, useContext, useState } from 'react'
+import Modal from '@material-ui/core/Modal'
 import { StyledAddIcon, StyledNewButton } from 'components/Task/task-styles'
-import React, { useEffect, useRef } from 'react'
 import { TaskType } from 'Utils/app-data'
+import { NewTask } from 'components/Task'
 import ListItem from './list-item'
 import {
   TasksListContainer,
@@ -16,21 +17,22 @@ type TProps = {
   tasks: Array<TaskType>
 }
 function TasksList({ tasks }: TProps): React.ReactElement {
-  /* const refCount = useRef<number>(0)
+  const [showModal, setShowModal] = useState(false)
 
-  useEffect(() => {
-    return () => {
-      console.log('Came', refCount.current)
-      refCount.current = 0
-    }
-  })
- */
+  const handleModalOpen = () => {
+    setShowModal(true)
+  }
+
+  const handleModalClose = () => {
+    setShowModal(false)
+  }
+
   return (
     <TasksListContainer>
       <TasksLevel1>
         <TasksHeader>Tasks</TasksHeader>
         <TaskSearch type="text" placeholder="Search by task name" />
-        <StyledNewButton>
+        <StyledNewButton onClick={handleModalOpen}>
           <StyledAddIcon />
           New Task
         </StyledNewButton>
@@ -38,13 +40,16 @@ function TasksList({ tasks }: TProps): React.ReactElement {
       <TasksLevel2>
         {tasks.map((task: TaskType) => {
           return (
-            <>
+            <Fragment key={task.id}>
               <ListItem key={task.id} task={task} />
               <StyledDivider />
-            </>
+            </Fragment>
           )
         })}
       </TasksLevel2>
+      <Modal open={showModal} onClose={handleModalClose}>
+        <NewTask handleModalClose={handleModalClose} />
+      </Modal>
     </TasksListContainer>
   )
 }

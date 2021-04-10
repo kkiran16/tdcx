@@ -5,7 +5,8 @@ const { Types, Creators } = createActions(
     fetchTasksList: null,
     updateTasksList: ['tasks'],
     addTask: ['name'],
-    changeStatus: ['id', 'status']
+    changeStatus: ['id', 'status'],
+    deleteTask: ['id']
   },
   {
     prefix: '@DASHBOARD-'
